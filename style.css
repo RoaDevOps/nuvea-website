@@ -1,0 +1,364 @@
+/* ============================================================
+   NUVÉA — Micropigmentación & Beauty Studio
+   Hoja de estilos general del sitio
+   ============================================================ */
+
+
+/* ============================================================
+   1. RESET Y VARIABLES GLOBALES
+   Reglas base que aplican a todo el sitio, y la paleta
+   de colores definida como variables para reutilizar.
+   ============================================================ */
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --ivory:#f7f3ee;
+  --cream:#fbf9f6;
+  --rose:#e8d8d2;
+  --taupe:#8b7770;
+  --brown:#3b302d;
+  --champ:#c9a98b;
+}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:Montserrat,Arial,sans-serif;
+  color:var(--brown);
+  background:var(--cream);
+  line-height:1.65;
+  font-size:15px;
+  overflow-x:hidden;
+}
+
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+
+
+/* ============================================================
+   2. HEADER Y NAVEGACIÓN
+   Barra superior fija con el logo y el menú.
+   ============================================================ */
+.header{
+  height:82px;
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:50;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 5%;
+  background:rgba(251,249,246,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(59,48,45,.08);
+}
+
+.brand{display:flex;flex-direction:column;line-height:1}
+.brand-name{font-family:"Cormorant Garamond",serif;font-size:33px;letter-spacing:.16em;font-weight:500}
+.brand-sub{font-size:7px;letter-spacing:.18em;text-align:center;margin-top:4px}
+
+.nav{display:flex;align-items:center;gap:24px;font-size:10px;text-transform:uppercase}
+.nav a{transition:.25s}
+.nav a:hover{color:var(--taupe)}
+.nav-cta{padding:11px 17px;border-radius:4px;background:var(--taupe);color:#fff!important}
+
+.menu-toggle{display:none;background:none;border:0;width:38px}
+.menu-toggle span{display:block;height:1px;background:var(--brown);margin:7px 0}
+
+
+/* ============================================================
+   3. HERO (sección principal de inicio)
+   ============================================================ */
+.hero{
+  min-height:760px;
+  height:92vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  background:#e8d8d2;
+}
+.hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(247,243,238,.97) 0%,rgba(247,243,238,.86) 38%,rgba(247,243,238,.25) 72%,rgba(59,48,45,.08) 100%);
+  z-index:1;
+}
+.hero-copy{position:relative;z-index:3;margin-left:10%;max-width:620px}
+.eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--taupe);font-weight:600;margin-bottom:12px}
+.hero h1{font-family:"Cormorant Garamond",serif;font-size:clamp(90px,11vw,160px);font-weight:400;letter-spacing:.14em;line-height:.75}
+.script{font-family:"Cormorant Garamond",serif;font-size:30px;font-style:italic;margin:10px 0 17px;color:var(--taupe)}
+.hero-text{font-size:16px;margin-bottom:30px}
+
+
+/* ============================================================
+   4. BOTONES
+   Estilo reutilizable para los CTA (Agendar valoración,
+   Agendar por WhatsApp, etc.)
+   ============================================================ */
+.button{
+  display:inline-flex;
+  gap:14px;
+  align-items:center;
+  padding:14px 24px;
+  border:1px solid var(--taupe);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-size:10px;
+  font-weight:600;
+  border-radius:3px;
+  background:var(--taupe);
+  color:#fff;
+  transition:.25s;
+}
+.button:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(59,48,45,.12)}
+
+
+/* ============================================================
+   5. ESTRUCTURA GENERAL DE SECCIÓN
+   Contenedor y encabezado que reutilizan varias secciones
+   (Servicios, Resultados, Proceso, Testimonios).
+   ============================================================ */
+.section{padding:100px 6%;max-width:1500px;margin:auto}
+.section-heading{text-align:center;margin-bottom:52px}
+.section-heading h2{font-family:"Cormorant Garamond",serif;font-size:50px;font-weight:500;line-height:1.1}
+.heading-line{width:45px;height:1px;background:var(--champ);margin:17px auto 0}
+
+
+/* ============================================================
+   6. SECCIÓN SERVICIOS
+   ============================================================ */
+.service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.service-card{background:var(--ivory);border:1px solid rgba(59,48,45,.06);transition:.3s;overflow:hidden}
+.service-card:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(59,48,45,.08)}
+.service-card>img{width:100%;height:230px;object-fit:cover}
+.service-body{padding:22px}
+.service-number{font-family:"Cormorant Garamond",serif;color:var(--champ);font-size:20px}
+.service-body h3{font-size:14px;text-transform:uppercase;margin:5px 0 10px}
+.service-body p{font-size:12px;color:#6e625e;min-height:62px}
+.service-body a{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--taupe);font-weight:600}
+
+
+/* ============================================================
+   7. SECCIÓN RESULTADOS (antes / después)
+   ============================================================ */
+.results{background:#fff}
+.results-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.result-card img{width:100%;aspect-ratio:1.15;object-fit:cover;border-radius:5px}
+.result-card figcaption{text-align:center;font-size:10px;text-transform:uppercase;letter-spacing:.08em;margin-top:11px;color:var(--taupe)}
+.photo-note{text-align:center;color:#9a8a84;font-size:11px;margin-top:35px}
+
+
+/* ============================================================
+   8. SECCIÓN "SOBRE MÍ" (beneficios + fundadora)
+   ============================================================ */
+.about-band{
+  background:var(--ivory);
+  padding:85px 6%;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+.about-benefits h2{font-family:"Cormorant Garamond",serif;font-size:48px;font-weight:500;margin-bottom:35px}
+.benefit-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.benefit-icon{font-size:28px;color:var(--taupe)}
+.benefit-grid h3{font-size:11px;text-transform:uppercase;margin-bottom:6px}
+.benefit-grid p{font-size:11px;color:#766964}
+
+.founder{display:grid;grid-template-columns:.85fr 1fr;background:#fff}
+.founder>img{width:100%;height:100%;min-height:430px;object-fit:cover}
+.founder-copy{padding:45px}
+.founder-copy h2{font-family:"Cormorant Garamond",serif;font-size:43px;font-weight:500;margin-bottom:18px}
+.founder-copy h2 em{font-weight:400;color:var(--taupe)}
+.founder-copy p{font-size:12px;color:#6e625e;margin-bottom:15px}
+.text-link{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--taupe);font-weight:600}
+
+
+/* ============================================================
+   9. SECCIÓN PROCESO (pasos 01-05)
+   ============================================================ */
+.process{background:#fff}
+.process-grid{display:flex;align-items:stretch;justify-content:center}
+.process-item{width:18%;text-align:center;padding:0 12px}
+.process-item b{font-family:"Cormorant Garamond",serif;color:var(--champ);font-size:25px;font-weight:400}
+.process-icon{font-size:28px;color:var(--taupe);margin:10px 0}
+.process-item h3{font-size:11px;text-transform:uppercase}
+.process-item p{font-size:10px;color:#766964;margin-top:7px}
+.process-arrow{align-self:center;color:var(--champ);font-size:20px}
+
+
+/* ============================================================
+   10. SECCIÓN TESTIMONIOS
+   ============================================================ */
+.testimonials{background:var(--ivory)}
+.testimonial-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:950px;margin:auto}
+.testimonial{background:#fff;padding:24px;display:flex;gap:20px;align-items:center;border:1px solid rgba(59,48,45,.07)}
+.testimonial img{width:85px;height:85px;border-radius:50%;object-fit:cover;flex:0 0 auto}
+.stars{color:var(--champ);letter-spacing:3px;font-size:11px;margin-bottom:8px}
+.testimonial p{font-family:"Cormorant Garamond",serif;font-size:19px;line-height:1.4}
+.testimonial footer{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--taupe);margin-top:12px}
+
+
+/* ============================================================
+   11. SECCIÓN "DA EL PRIMER PASO" (booking / CTA final)
+   Nota: el padding se redujo de 60px a 32px para hacer esta
+   franja más delgada, como se pidió.
+   ============================================================ */
+.booking{
+  padding:32px 8%;
+  background:var(--taupe);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px;
+}
+.booking .eyebrow{color:#eadbd5}
+.booking h2{font-family:"Cormorant Garamond",serif;font-size:47px;font-weight:400;line-height:1.05}
+.booking p:last-child{font-size:12px;margin-top:8px;color:#eee1dc}
+.booking .button{background:transparent;border-color:#eadbd5}
+
+
+/* ============================================================
+   12. FOOTER
+   Nota: el padding se redujo de 65px a 32px para hacer el
+   footer más delgado, como se pidió.
+   ============================================================ */
+.footer{
+  background:var(--brown);
+  color:#f4eee8;
+  padding:32px 6% 16px;
+}
+
+/* Estructura original en 4 columnas (Marca / Enlaces / Servicios / Contacto).
+   Se mantiene por si se vuelve a usar en el futuro. */
+.footer-main{display:grid;grid-template-columns:1.4fr 1fr 1.3fr 1fr;gap:45px;padding-bottom:50px}
+.footer-brand .brand-name{font-size:43px}
+.footer-brand p{font-size:8px;letter-spacing:.15em;margin:7px 0 20px}
+.footer-brand small{font-size:10px;color:#c8b9b2}
+.footer h3{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:#d9c4bb;margin-bottom:15px}
+.footer a,.footer span{display:block;font-size:10px;color:#d5c7c0;margin:7px 0}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:18px;display:flex;justify-content:space-between;font-size:9px;color:#b9aaa4}
+
+/* --- Variante simplificada del footer (solo marca, sin columnas) --- */
+/* Se activa agregando la clase "footer-main--simple" junto a "footer-main" en el HTML */
+
+/* Bloque 1: centra la marca NUVÉA en vez de usar la cuadrícula de 4 columnas */
+.footer-main--simple{
+  display:flex;
+  justify-content:center;
+  text-align:center;
+  padding-bottom:18px; /* reducido de 35px para un footer más compacto */
+}
+
+/* Bloque 2: limita el ancho del bloque de marca para que no se estire de borde a borde */
+.footer-main--simple .footer-brand{
+  max-width:320px;
+}
+
+/* Bloque 3: da un pequeño espacio arriba del texto "Tu belleza, nuestra precisión." */
+.footer-main--simple .footer-brand small{
+  margin-top:6px;
+  display:block;
+}
+
+
+/* ============================================================
+   13. BOTÓN FLOTANTE DE WHATSAPP
+   ============================================================ */
+.floating-whatsapp{
+  position:fixed;
+  right:22px;bottom:22px;
+  width:52px;height:52px;
+  border-radius:50%;
+  background:var(--taupe);
+  color:#fff;
+  display:grid;
+  place-items:center;
+  font-size:25px;
+  z-index:40;
+  box-shadow:0 8px 25px rgba(59,48,45,.22);
+}
+
+
+/* ============================================================
+   14. ANIMACIÓN DE APARICIÓN (scroll reveal)
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(18px);transition:.7s ease}
+.reveal.visible{opacity:1;transform:none}
+
+
+/* ============================================================
+   15. RESPONSIVE — TABLET (max-width: 1100px)
+   ============================================================ */
+@media(max-width:1100px){
+  .nav{gap:14px}
+  .service-grid,.results-grid{grid-template-columns:repeat(2,1fr)}
+  .process-grid{flex-wrap:wrap;gap:25px}
+  .process-item{width:28%}
+  .process-arrow{display:none}
+}
+
+
+/* ============================================================
+   16. RESPONSIVE — MÓVIL GRANDE (max-width: 800px)
+   ============================================================ */
+@media(max-width:800px){
+  .header{height:72px}
+  .menu-toggle{display:block;z-index:52}
+  .nav{
+    position:fixed;top:72px;right:0;
+    width:min(330px,88vw);
+    height:calc(100vh - 72px);
+    padding:35px;
+    flex-direction:column;
+    align-items:flex-start;
+    background:var(--ivory);
+    transform:translateX(100%);
+    transition:.3s;
+    box-shadow:-10px 0 30px rgba(59,48,45,.08);
+  }
+  .nav.open{transform:none}
+  .nav a{font-size:11px}
+  .hero{min-height:680px;height:90vh}
+  .hero-image{object-position:65% center}
+  .hero-overlay{background:linear-gradient(90deg,rgba(247,243,238,.97),rgba(247,243,238,.78) 65%,rgba(247,243,238,.35))}
+  .hero-copy{margin-left:7%;margin-right:7%;margin-top:35px}
+  .hero h1{font-size:80px}
+  .script{font-size:25px}
+  .about-band{grid-template-columns:1fr;padding:65px 6%;gap:50px}
+  .founder{grid-template-columns:1fr}
+  .founder>img{height:330px;min-height:0}
+  .booking{flex-direction:column;align-items:flex-start}
+  .footer-main{grid-template-columns:1fr 1fr}
+}
+
+
+/* ============================================================
+   17. RESPONSIVE — MÓVIL PEQUEÑO (max-width: 560px)
+   ============================================================ */
+@media(max-width:560px){
+  .section{padding:70px 5%}
+  .section-heading{margin-bottom:38px}
+  .section-heading h2{font-size:39px}
+  .service-grid,.results-grid,.testimonial-grid{grid-template-columns:1fr}
+  .service-card>img{height:235px}
+  .benefit-grid{grid-template-columns:1fr;gap:24px}
+  .about-benefits h2{font-size:40px}
+  .process-item{width:45%}
+  .hero{min-height:650px;height:86vh}
+  .hero-copy{margin-top:10px}
+  .hero h1{font-size:65px;letter-spacing:.09em}
+  .script{font-size:21px}
+  .hero-text{font-size:13px}
+  .desktop{display:none}
+  .testimonial{flex-direction:column;align-items:flex-start}
+  .testimonial img{width:72px;height:72px}
+  .footer-main{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;gap:8px}
+  .booking h2{font-size:39px}
+  .brand-name{font-size:28px}
+  .brand-sub{font-size:6px}
+  .floating-whatsapp{right:16px;bottom:16px}
+}
